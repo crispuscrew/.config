@@ -5,7 +5,9 @@
 	"position": "bottom",
 
 	"modules-left": [
-		"custom/shutdown"
+		"custom/tab"
+		,"custom/tab"
+		,"custom/poweroff"
 		,"custom/tab"
 		,"custom/restart"
 		,"custom/tab"
@@ -15,8 +17,7 @@
 		,"custom/tab"
 		,"bluetooth"
 		,"custom/tab"
-		//,"custom/keyboard_layout"
-		//,"hyprland/language"
+		,"custom/keyboard_layout"
 	],
 	"modules-center": [
 		"clock#1",
@@ -26,17 +27,18 @@
 		"clock#3"
 	],
 	"modules-right": [
-		"custom/tab",
-		"pulseaudio",
-		"custom/tab",
-		"memory",
-		"custom/tab",
-		"cpu",
-		"custom/tab",
-		"battery",
-		"custom/tab",
-		"custom/tab",
-		"tray"
+		"backlight"
+		,"custom/tab"
+		,"custom/microphone"
+		,"pulseaudio"
+		,"custom/tab"
+		,"memory"
+		,"custom/tab"
+		,"cpu"
+		,"custom/tab"
+		,"battery"
+		,"custom/tab"
+		,"custom/tab"
 	],
 
 	"custom/tab": {
@@ -62,7 +64,7 @@
 
 	"pulseaudio": {
 		"format": "{volume}% {icon}",
-		"format-bluetooth": "{icon} {volume}% ",
+		"format-bluetooth": "{volume}% {icon}",
 		"format-muted": "",
 		"format-icons": {
 			"alsa_output.pci-0000_00_1f.3.analog-stereo": "",
@@ -79,6 +81,11 @@
 		"scroll-step": 1,
 		"on-click": "pavucontrol",
 		"on-click-right": "pavucontrol"
+	},
+	"custom/microphone": {
+	    "format": "{} ",
+	    "exec": "pactl get-source-mute $(pactl info | grep 'Default Source' | awk '{print $3}') | grep -q 'yes' && echo '' || echo ''",
+	    "interval": 1
 	},
 	"memory": {
 		"interval": 5,
@@ -107,55 +114,50 @@
 		"interface": "wlp2s0",
 		"format": "{ifname}",
 		"format-wifi": " {essid} {signalStrength}% ",
-		//"format-ethernet": "{ifname} ",
 		"format-disconnected": "",
 		"format-disconnected": "",
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 		"tooltip-format-ethernet": "{ifname} ",
 		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50,
-		"interval": 10,
-		"on-click": "bluetoothctl toggle",
-    	"on-click-right": "blueman-manager"
+		"max-length": 15,
+		"interval": 5,
+		"on-click": "if nmcli radio wifi | grep -q enabled; then nmcli radio wifi off; else nmcli radio wifi on; fi",
+    	"on-click-right": "nm-connection-editor"
 	},
 	"bluetooth": {
 		"format": " {status}",
 		"format-connected": " {device_alias}",
 		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-		// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
 		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
 		"format-disconnected": " 🔌 disconnected",
-		"on-click": "blueman-manager",
-		"on-click-right": "bluetoothctl power off",
-		"interval": 10
+		"on-click-right": "blueman-manager",
+		"on-click": "if bluetoothctl show | grep -q 'Powered: yes'; then bluetoothctl power off; else bluetoothctl power on; fi",
+		"max-length": 15,
+		"interval": 5
 	},
 	"custom/keyboard_layout": {
-	    "exec": "localectl | grep 'VC Keymap' | awk '{print $3}'",
-	    "interval": 1,
-	    "format": "{output}",
-	    "tooltip": false
-	},
-	"hyprland/language": {
-              "format": "{}",
-              "format-en": "us",
-              "format-it": "it",
-              "keyboard-name": "at-translated-set-2-keyboard",
-              "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    	"exec": "hyprctl devices | grep -B 1 'main: yes' | grep -oP 'active keymap: \\K.*' | sed 's/Russian$/RU/' | sed 's/English (US)$/US/'",
+    	"interval": 1,
+    	"format": " {}",
+    	"tooltip": false
 	},
 	"custom/restart": {
     	"format": "",          
     	"on-click": "/sbin/reboot",
-    	"tooltip": "Перезагрузить систему",
+    	"tooltip": true,
     	"interval": 0                
 	},
-	"custom/shutdown": {
+	"custom/poweroff": {
     	"format": "",          
     	"on-click": "/sbin/poweroff",
-    	"tooltip": "Выключить систему",
+    	"tooltip": true,
     	"interval": 0                
+	},
+	"backlight": {
+	  "format": " {percent}%"
 	}
 }

@@ -30,21 +30,25 @@ window#waybar {
 	background: #1a1a1a;
 }
 
-#pulseaudio {
-	color: #268bd2;
-}
-#memory {
-	color: #2aa198;
-}
-#cpu {
-	color: #6c71c4;
-}
-#battery {
-	color: #859900;
-}
 #disk {
 	color: #b58900;
 }
+#backlight {
+	color: #cb4b16
+}
+#pulseaudio, #custom-microphone, #bluetooth {
+	color: #268bd2;
+}
+#memory, #custom-keyboard_layout {
+	color: #2aa198;
+}
+#cpu, #network {
+	color: #6c71c4;
+}
+#battery, #custom-poweroff, #custom-restart {
+	color: #859900;
+}
+
 
 #clock,
 #pulseaudio,
