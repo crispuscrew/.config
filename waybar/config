@@ -111,11 +111,12 @@
 		"icon-size": 20
 	},
 	"network": {
-		"interface": "wlp2s0",
+		//"interface": "your-interface",
 		"format": "{ifname}",
 		"format-wifi": " {essid} {signalStrength}% ",
 		"format-disconnected": "",
 		"format-disconnected": "",
+		"format-ethernet": " {ifname}",
 		"tooltip-format": "{ifname}",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
 		"tooltip-format-ethernet": "{ifname} ",
