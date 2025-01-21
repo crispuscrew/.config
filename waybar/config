@@ -1,5 +1,4 @@
 // -*- mode: json -*-
-
 {
 	"layer": "top",
 	"position": "bottom",
@@ -124,7 +123,7 @@
 		"max-length": 15,
 		"interval": 5,
 		"on-click": "if nmcli radio wifi | grep -q enabled; then nmcli radio wifi off; else nmcli radio wifi on; fi",
-    	"on-click-right": "nm-connection-editor"
+    	"on-click-right": "kitty bash -c 'nmcli --help; exec bash'"
 	},
 	"bluetooth": {
 		"format": " {status}",

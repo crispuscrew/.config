@@ -1,6 +1,5 @@
 *
-!/hypr
-!/waybar
-!/hypr/*
-!/waybar/*
+!/config_files
+!/config_files/*
 !README.md
+!config_auto.sh
