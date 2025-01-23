@@ -96,7 +96,8 @@ while true; do
     case $answer in
         [Yy]* )
             read -p "Type wallpaper path without / at the end (you can use \$HOME for ~/): " wallpaper_path
-            if [ -f "${wallpaper_path/#\~/$HOME}" ]; then
+            wallpaper_path="${wallpaper_path/#\~/$HOME}"
+            if [ -f "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
                 sed -i "1i \$wallpaper_path = '$wallpaper_path'" hypr/hyprland.conf
             else
@@ -119,7 +120,8 @@ while true; do
     case $answer in
         [Yy]* )
             read -p "Type screenshots path without / at the end (you can use \$HOME for ~/): " screenshots_path
-            if [ -f "${wallpaper_path/#\~/$HOME}" ]; then
+            screenshots_path="${screenshots_path/#\~/$HOME}"
+            if [ -f "$screenshots_path" ]; then
                 echo "[INFO] Adding configuration for screenshots..."
                 sed -i "1i \$screenshot_path = '$screenshots_path'" hypr/hyprland.conf
             else
