@@ -4,6 +4,12 @@ This is auto-install .config for **Fedora 41** with Hyprland (Wayland), Waybar, 
 
 # Install Guide
 
+### If you install it over existing graphical environment
+
+I don't know what effect this script will have on your system if you run it on an existing graphical environment like GNOME or KDE. I highly recommend performing a
+
+### Pure installation
+
 1. Download actual version of [**Fedora Server Network Install iso**](https://fedoraproject.org/server/download)
 
 2. Create a bootable USB drive by, for example, **dd** comand (Linux) or [**Rufus**](https://rufus.ie/) (Windows)
@@ -46,50 +52,75 @@ Your system is now configured with Hyprland and customized utilities. Explore an
 # Hotkeys
 
 You're always can change it in ~/.config/hypr/hyprland.conf
-(super = $mainMod = Windows button = ⌘ Command)
+(Super = $mainMod = Windows button = ⌘ Command)
 
 ### Main hotkeys
 
 | Hotkey         | Action                     |
 |----------------|----------------------------|
-| super + C      | close focus window         |
-| super + Q      | open terminal              |
-| super + R      | open apps select menu      |
-| super + V      | win+V equivalent           |
-| super + S      | win + shift + s equivalent |
-| super + L      | win + L equivalent         |
-| super + arrows | toggle focus               |
-| super + LMB   | move window            |
-| super + RMB   | resize window          |
+| Super + C      | close focus window         |
+| Super + Q      | open terminal              |
+| Super + R      | open apps select menu      |
+| Super + V      | win+V equivalent           |
+| Super + S      | win + shift + s equivalent |
+| Super + L      | win + L equivalent         |
+| Super + arrows | toggle focus               |
+| Super + LMB    | move window                |
+| Super + RMB    | resize window              |
+| Super + U      | resize window by arrows, leave with esc    |
 
 ### Workspaces
 
 | Hotkey                | Action                                   |
 |-----------------------|------------------------------------------|
-| super + (1-9)         | switch workspace (1-9)                   |
-| super + (1-9) + shift | bring focus window to (1-9) workspace    |
-| super + A             | back to previous workspace               |
-| super + mouse scroll  | scroll workspaces                        |
-| super + E             | switch to overflow workspace             |
-| super + shift + E     | bring focus window to overflow workspace |
-| super + D             | win + D equivalent                       |
+| Super + (1-9)         | switch workspace (1-9)                   |
+| Super + (1-9) + shift | bring focus window to (1-9) workspace    |
+| Super + A             | back to previous workspace               |
+| Super + mouse scroll  | scroll workspaces                        |
+| Super + E             | switch to overflow workspace             |
+| Super + shift + E     | bring focus window to overflow workspace |
+| Super + D             | win + D equivalent                       |
+
+### Media, mic & screen
+You also can use media (XF86) button
+
+| Hotkey                | Action                             |
+|-----------------------|------------------------------------|
+| Super + Shift + B     | Increase screen brightness by 10%  |
+| Super + Ctrl + B      | Decrease screen brightness by 10%  |
+| Super + M             | Mute sound                         |
+| Super + Shift + M     | Mute microphone                    |
+| Super + Shift + Space | Play/Pause                         |
+| Super + Shift + →     | Next track                         |
+| Super + Shift + ←     | Previous track                     |
+| Super + Shift + ↓     | Decrease volume by 5%              |
+| Super + Shift + ↑     | Increase volume by 5%              |
 
 
 ### Additional hotkeys
 
 | Hotkey      | Action                    |
 |-------------|---------------------------|
-| super + M   | close Hyprland session    |
-| super + F11 | fullscreen focus window   |
-| super + Tab | alt + Tab equivalent      |
-| super + P   | pseudotile window         |
-| super + J   | toggle split orientation  |
-| super + W   | toggle waybar             |
+| Super + F11 | fullscreen focus window   |
+| Super + Tab | alt + Tab equivalent      |
+| Super + P   | pseudotile window         |
+| Super + J   | toggle split orientation  |
+| Super + W   | toggle waybar             |
 | printscreen | screenshot save like file |
-| super + F   | open file manager         |
-| super + [   | wallpapers carousel on    |
-| super + ]   | wallpapers off            |
+| Super + F   | open file manager         |
+| Super + [   | wallpapers carousel on    |
+| Super + ]   | wallpapers off            |
+| Super + U   | arrow to window resize mod, esc to leave           |
 
+# Additional installation
+
+If you want to install additional applications according to my preferences, run:
+
+```bash
+~/.config/config_auto_additionals.sh
+```
+
+U may need to reboot
 
 # P.S
 
