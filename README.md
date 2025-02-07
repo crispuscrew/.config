@@ -52,7 +52,8 @@ Your system is now configured with Hyprland and customized utilities. Explore an
 # Hotkeys
 
 You're always can change it in ~/.config/hypr/hyprland.conf
-(Super = $mainMod = Windows button = ⌘ Command)
+
+(Super = Super_L = $mainMod = Windows button = ⌘ Command)
 
 ### Main hotkeys
 
