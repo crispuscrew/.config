@@ -98,7 +98,8 @@ while true; do
         [Yy]* )
             read -p "Type wallpaper path without / at the end (you can use \$HOME for ~/): " wallpaper_path
             wallpaper_path="${wallpaper_path/#\~/$HOME}"
-            if [ -f "$wallpaper_path" ]; then
+            # Если ожидается, что путь — это директория, используем -d
+            if [ -d "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
                 sed -i "1i \$wallpaper_path = '$wallpaper_path'" hypr/hyprland.conf
             else
@@ -116,13 +117,15 @@ while true; do
     esac
 done
 
+
 read -p "Want to configure screenshots path? (You can do this manually later) y/n: " answer
 while true; do
     case $answer in
         [Yy]* )
             read -p "Type screenshots path without / at the end (you can use \$HOME for ~/): " screenshots_path
             screenshots_path="${screenshots_path/#\~/$HOME}"
-            if [ -f "$screenshots_path" ]; then
+            # Если ожидается, что путь — это директория, используем -d
+            if [ -d "$screenshots_path" ]; then
                 echo "[INFO] Adding configuration for screenshots..."
                 sed -i "1i \$screenshot_path = '$screenshots_path'" hypr/hyprland.conf
             else
