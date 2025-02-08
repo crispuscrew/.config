@@ -98,7 +98,6 @@ while true; do
         [Yy]* )
             read -p "Type wallpaper path without / at the end (you can use \$HOME for ~/): " wallpaper_path
             wallpaper_path="${wallpaper_path/#\~/$HOME}"
-            # Если ожидается, что путь — это директория, используем -d
             if [ -d "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
                 sed -i "1i \$wallpaper_path = '$wallpaper_path'" hypr/hyprland.conf
