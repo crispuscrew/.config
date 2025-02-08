@@ -35,7 +35,8 @@ done
 
 
 echo "[INFO] Fetching the latest Amnezia VPN release..."
-LATEST_RELEASE=$(curl -s https://api.github.com/repos/amnezia-vpn/amnezia-client/releases/latest | jq -r '.assets[] | select(.name | test("linux\\.tar\\.zip$")) | .browser_download_url')
+LATEST_RELEASE=$(curl -s https://api.github.com/repos/amnezia-vpn/amnezia-client/releases/latest \
+    | jq -r '.assets[] | select(.name | test("linux_installer\\.tar\\.zip$", "i")) | .browser_download_url')
 if [ -z "$LATEST_RELEASE" ]; then
     echo "[ERR] Failed to fetch the latest release URL."
     exit 1
