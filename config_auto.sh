@@ -3,12 +3,14 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+user_home=$(eval echo "~$SUDO_USER")
+
 echo "[INFO] dnf install..."
 
 dnf install -y \
 hyprland wayfire wlroots kitty mc wofi grim slurp waybar wl-copy wl-paste \
 playerctl brightnessctl pactl xdotool libinput xbindkeys libva wlr-randr \
-pavucontrol blueman \
+pavucontrol blueman swaylock --exclude=SwayNotificationCenter* \
 && echo "[INFO] dnf install complete." || echo "[ERR] dnf install finish with error, pls repair it after script completing"
 
 
@@ -96,8 +98,9 @@ read -p "Want to configure wallpapers path? (You can do this manually later) y/n
 while true; do
     case $answer in
         [Yy]* )
-            read -p "Type wallpaper path without / at the end (you can use \$HOME for ~/): " wallpaper_path
-            wallpaper_path="${wallpaper_path/#\~/$HOME}"
+            read -p "Type wallpaper path without / at the end (you can use ~ for your home directory): " wallpaper_path
+            wallpaper_path="${wallpaper_path/#\~/$user_home}"
+            wallpaper_path="${wallpaper_path/\$HOME/$user_home}"
             if [ -d "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
                 sed -i "1i \$wallpaper_path = '$wallpaper_path'" hypr/hyprland.conf
@@ -121,9 +124,9 @@ read -p "Want to configure screenshots path? (You can do this manually later) y/
 while true; do
     case $answer in
         [Yy]* )
-            read -p "Type screenshots path without / at the end (you can use \$HOME for ~/): " screenshots_path
-            screenshots_path="${screenshots_path/#\~/$HOME}"
-            # Если ожидается, что путь — это директория, используем -d
+            read -p "Type screenshots path without / at the end (you can use ~ for your home directory): " screenshots_path
+            screenshots_path="${screenshots_path/#\~/$user_home}"
+            screenshots_path="${screenshots_path/\$HOME/$user_home}"
             if [ -d "$screenshots_path" ]; then
                 echo "[INFO] Adding configuration for screenshots..."
                 sed -i "1i \$screenshot_path = '$screenshots_path'" hypr/hyprland.conf
