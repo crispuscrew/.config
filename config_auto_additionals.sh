@@ -7,7 +7,7 @@ fi
 
 for i in 1; do
     echo "[INFO] Installing dnf packages..."
-    dnf install -y flatpak jq curl fira-code-fonts
+    dnf install -y flatpak jq curl
     if [ $? -ne 0 ]; then
         echo "[ERR] dnf packages installation finished with error, please repair it after script completion"
         break
