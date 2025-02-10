@@ -10,7 +10,7 @@ echo "[INFO] dnf install..."
 dnf install -y \
 hyprland wayfire wlroots kitty mc wofi grim slurp waybar wl-copy wl-paste \
 playerctl brightnessctl pactl xdotool libinput xbindkeys libva wlr-randr \
-pavucontrol blueman swaylock --exclude=SwayNotificationCenter* \
+pavucontrol blueman swaylock \
 && echo "[INFO] dnf install complete." || echo "[ERR] dnf install finish with error, pls repair it after script completing"
 
 
