@@ -16,8 +16,8 @@ pavucontrol blueman swaylock \
 
 echo "[INFO] Others bin install..."
 
-if [ -d "./config_files/bin" ]; then
-    cp ./config_files/bin/* /usr/bin/ \
+if [ -d "$user_home/.config/config_files/bin" ]; then
+    cp $user_home/.config/config_files/bin/* /usr/bin/ \
     && echo "[INFO] Binary install complete." || echo "[ERR] Binary install finished with errors."
 else
     echo "[ERR] Directory ./config_files/bin not found. Skipping binary installation."
@@ -26,8 +26,8 @@ fi
 
 echo "[INFO] Configs install..."
 
-if [ -d "./config_files/configs" ]; then
-    cp -r ./config_files/configs/* ./ \
+if [ -d "$user_home/.config/config_files/configs" ]; then
+    cp -r $user_home/.config/config_files/configs/* $user_home/.config/ \
     && echo "[INFO] Configs install complete." || echo "[ERR] Configs install finished with errors."
 else
     echo "[ERR] Directory ./config_files/configs not found. Skipping configs installation."
@@ -71,7 +71,7 @@ for device in /sys/class/drm/*-*/status; do
                 fi
 
                 echo "[INFO] Adding configuration for $name..."
-                sed -i "1i monitor = $name, $max_mode, ${total_width}x0, $scale" hypr/hyprland.conf
+                sed -i "1i monitor = $name, $max_mode, ${total_width}x0, $scale" $user_home/.config/hypr/hyprland.conf
                 total_width=$((total_width + width))
                 break
                 ;;
@@ -103,7 +103,7 @@ while true; do
             wallpaper_path="${wallpaper_path/\$HOME/$user_home}"
             if [ -d "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
-                sed -i "1i \$wallpaper_path = '$wallpaper_path'" hypr/hyprland.conf
+                sed -i "1i \$wallpaper_path = '$wallpaper_path'" $user_home/.config/hypr/hyprland.conf
             else
                 echo "[ERR] Invalid wallpaper path. Please configure it manually later."
             fi
@@ -129,7 +129,7 @@ while true; do
             screenshots_path="${screenshots_path/\$HOME/$user_home}"
             if [ -d "$screenshots_path" ]; then
                 echo "[INFO] Adding configuration for screenshots..."
-                sed -i "1i \$screenshot_path = '$screenshots_path'" hypr/hyprland.conf
+                sed -i "1i \$screenshot_path = '$screenshots_path'" $user_home/.config/hypr/hyprland.conf
             else
                 echo "[ERR] Invalid screenshots path. Please configure it manually later."
             fi
