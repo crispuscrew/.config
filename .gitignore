@@ -5,3 +5,5 @@
 !config_auto.sh
 !additionals_config_auto.sh
 !LICENSE
+config_files/temp
+config_files/temp/**
