@@ -116,7 +116,7 @@ You also can use media (XF86) button
 
 # Additional installation
 
-If you want to install additional applications according to my preferences, run:
+If you want to install additional applications according to my preferences, run (under Hyprland session):
 
 ```bash
 sudo ~/.config/.additionals_config_auto.sh
