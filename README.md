@@ -6,7 +6,7 @@ This is auto-install .config for **Fedora 41** with Hyprland (Wayland), Waybar, 
 
 ### If you install it over existing graphical environment
 
-I don't know what effect this script will have on your system if you run it on an existing graphical environment like GNOME or KDE. I highly recommend performing a
+I don't know what effect this script will have on your system if you run it on an existing graphical environment other than Hyprland, like GNOME or KDE. I highly recommend performing a
 
 ### Pure installation
 
@@ -51,7 +51,7 @@ Your system is now configured with Hyprland and customized utilities. Explore an
 
 # Hotkeys
 
-You're always can change it in ~/.config/hypr/hyprland.conf
+You're always can change it in ~/.config/hypr/input.conf
 
 (Super = Super_L = $mainMod = Windows button = ⌘ Command)
 
@@ -84,6 +84,7 @@ You're always can change it in ~/.config/hypr/hyprland.conf
 
 ### Media, mic & screen
 You also can use media (XF86) button
+(multi-modificator hotheys are some unstable)
 
 | Hotkey                | Action                             |
 |-----------------------|------------------------------------|
@@ -118,7 +119,7 @@ You also can use media (XF86) button
 If you want to install additional applications according to my preferences, run:
 
 ```bash
-~/.config/config_auto_additionals.sh
+sudo ~/.config/.additionals_config_auto.sh
 ```
 
 U may need to reboot

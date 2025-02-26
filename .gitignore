@@ -3,4 +3,5 @@
 !/config_files/**
 !README.md
 !config_auto.sh
-!config_auto_additionals.sh
+!additionals_config_auto.sh
+!LICENSE
