@@ -4,19 +4,19 @@ while true; do
     case $answer in
         [Yy]* )
             read -p "Type wallpaper path without / at the end (you can use ~ for your home directory) (dflt: ~/img/wallpaper): " wallpaper_path
-            wallpaper_path=${wallpaper_path:-~/img/wallpaper/Flanker}
+            wallpaper_path=${wallpaper_path:-$user_home/img/wallpaper/Flanker}
             wallpaper_path="${wallpaper_path/#\~/$user_home}"
             wallpaper_path="${wallpaper_path/\$HOME/$user_home}"
             if [ -d "$wallpaper_path" ]; then
                 echo "[INFO] Adding configuration for wallpaper..."
             else
-                wallpaper_path=""
+                wallpaper_path="$user_home/img/wallpaper"
                 echo "[ERR] Invalid wallpaper path. Please configure it manually later."
             fi
             break
             ;;
         [Nn]* )
-            wallpaper_path=""
+            wallpaper_path="$user_home/img/wallpaper"
             break
             ;;
         * )

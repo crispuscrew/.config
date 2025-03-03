@@ -39,7 +39,7 @@ if [ -e "${user_home}/.config//hypr/user.conf" ]; then
         esac
     done
 fi
-echo "[DEBUG] Final user_conf_flag: $user_conf_flag"
+# echo "[DEBUG] Final user_conf_flag: $user_conf_flag"
 
 chmod a+rw $user_home/.config/hypr/input.conf
 if [ "$user_conf_flag" = true ]; then

@@ -4,19 +4,19 @@ while true; do
     case $answer in
         [Yy]* )
             read -p "Type screenshot path without / at the end (you can use ~ for your home directory) (dflt: ~/img/screenshot): " screenshot_path
-            screenshot_path=${screenshot_path:-~/img/screenshot}
+            screenshot_path=${screenshot_path:-$user_home/img/screenshot}
             screenshot_path="${screenshot_path/#\~/$user_home}"
             screenshot_path="${screenshot_path/\$HOME/$user_home}"
             if [ -d "$screenshot_path" ]; then
                 echo "[INFO] Adding configuration for screenshot..."
             else
-                screenshot_path=""
+                screenshot_path="$user_home/img/screenshot"
                 echo "[ERR] Invalid screenshot path. Please configure it manually later."
             fi
             break
             ;;
         [Nn]* )
-            screenshot_path=""
+            screenshot_path="$user_home/img/screenshot"
             break
             ;;
         * )

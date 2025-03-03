@@ -39,7 +39,10 @@ for device in /sys/class/drm/*-*/status; do
                 fi
 
                 echo "[INFO] Adding configuration for $name..."
-                sed -i "1i\\monitor= $name, $max_mode, ${total_width}x0, $scale" "$user_home/.config/hypr/user.conf"
+
+                printf "\$monitor= $name, $max_mode, ${total_width}x0, $scale\n" | cat - "$user_home/.config/hypr/user.conf" > "$user_home/.config/hypr/user.conf.tmp" \
+                && mv "$user_home/.config/hypr/user.conf.tmp" "$user_home/.config/hypr/user.conf"
+
                 total_width=$((total_width + width))
                 break
                 ;;
