@@ -7,7 +7,7 @@ fi
 echo "[INFO] Flatpak remote setup complete." 
 
 echo "[INFO] Installing Flatpak packages..."
-FlatpakPkgs=("com.spotify.Client" "io.qt.Linguist" "io.qt.Designer" "io.qt.QtCreator" "com.st.STM32CubeIDE" "org.telegram.desktop" "org.onlyoffice.desktopeditors" "com.discordapp.Discord")
+FlatpakPkgs=("com.spotify.Client" "io.qt.Linguist" "io.qt.Designer" "io.qt.QtCreator" "org.telegram.desktop" "org.onlyoffice.desktopeditors" "com.discordapp.Discord")
 for pkg in "${FlatpakPkgs[@]}"; do
     flatpak install -y flathub "$pkg"
     if [ $? -ne 0 ]; then

@@ -6,7 +6,10 @@ fi
 
 export user_home=$(eval echo "~$SUDO_USER")
 
-files=("add_dnf.sh" "add_flatpak.sh" "kicad_install.sh" "vs_code_install.sh" "anytype_install.sh" "chrome_install.sh" "amnezia_install.sh")
+files=("add_dnf.sh" "add_flatpak.sh" "anytype_install.sh" \
+       "chrome_install.sh" "cube_ide_install.sh" "kicad_install.sh" \
+       "zerotier_install.sh" "vs_code_install.sh" "amnezia_install.sh")
+files=("amnezia_install.sh" )
 user_files=()
 path_to_files=${user_home}/.config/config_files/bash/add/
 

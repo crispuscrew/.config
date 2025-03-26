@@ -29,16 +29,13 @@ git clone https://github.com/CrispusCrew/.config.git
 6. And start bash script
 ```bash
 cd .config
-sudo chmod +x config_auto.sh
-sudo ./config_auto.sh
+sudo chmod +x base_config_auto.sh
+sudo ./base_config_auto.sh
 ```
 
 7. You must install your GPU drivers by yourself, otherwise wayland-session may crash. If u have nvidia GPU, in my expirience, best way to get it - by RPM Fusion. For it:
 ```bash
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install akmod-nvidia
-sudo reboot
+sudo ./drivers_nvidia_auto_install.sh
 ```
 
 8. Reboot your pc/laptop. Log in by TTY (press Ctrl+Alt+F2 if necessary), and write
