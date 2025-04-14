@@ -5,7 +5,7 @@ fi
 
 export user_home=$(eval echo "~$SUDO_USER")
 
-files=("base_dnf.sh" "files_install.sh" "selinux_disabled.sh")
+files=("base_dnf.sh" "files_install.sh" "selinux_disabled.sh" "spf_install.sh")
 user_files=("monitor_setup.sh" "wallpaper_config.sh" "screenshots_config.sh")
 path_to_files=${user_home}/.config/config_files/bash/base/
 

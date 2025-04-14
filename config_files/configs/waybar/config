@@ -13,7 +13,7 @@
 		 "custom/poweroff"
 		,"custom/restart"
 		,"clock"
-		,"clock#simpleclock"
+		,"clock#simple"
 		,"custom/keyboard_layout"
 		,"hyprland/workspaces"
 	],
@@ -49,7 +49,7 @@
 	  },
 	  "player-icons": {
 		"default": " "
-	  },
+	  }
 	},
 	"hyprland/workspaces": {
 	  "on-click": "activate",
@@ -58,26 +58,34 @@
 	  "disable-scroll": false,
 	  "active-only": false
 	},
-	"clock#simpleclock": {
-	  "tooltip": false,
-	  "format": "  {:%H:%M}"
+	"clock#simple": {
+        "tooltip-format": "{0:%H:%M:%S}",
+	    "format": " {0:%H:%M}",
+        "interval": 1
 	},
 	"clock": {
-	  "format": " {:L%a %d %b}",
-	  "calendar": {
-		"format": {
-		  "days": "<span weight='normal'>{}</span>",
-		  "months": "<span color='#cdd6f4'><b>{}</b></span>",
-		  "today": "<span color='#f38ba8' weight='700'><u>{}</u></span>",
-		  "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-		  "weeks": "<span color='#a6e3a1'><b>W{}</b></span>",
-		},
-		"mode": "month",
-		"mode-mon-col": 1,
-		"on-scroll": 1
-	  },
-	  "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>",
-	},
+      "format": " {0:L%a %d %b %Y}",
+      "interval": 60,
+      "calendar": {
+        "weeks-pos": "right",
+        "mode-mon-col"  : 4,
+        "format": {
+          "days": "<span weight='normal'>{}</span>",
+          "months": "<span color='#cdd6f4'><b>{}</b></span>",
+          "today": "<span color='#f38ba8' weight='3000'><u>{}</u></span>",
+          "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+          "weeks": "<span color='#7fab7b'><b>w{:%W}</b></span>"
+        },
+        "mode": "month",
+        "on-scroll": 1
+      },
+      "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    },
+      "tooltip-format": "<span color='#cdd6f4' font='Lexend 16'><tt><small>{calendar}</small></tt></span>"
+    },
 	"cpu": {
 	  "format": " {usage}%",
 	  "tooltip": true,
@@ -97,17 +105,11 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": [
-            "󰂎",
-            "󰁺",
-            "󰁻",
-            "󰁼",
-            "󰁽",
-            "󰁾",
-            "󰁿",
-            "󰂀",
-            "󰂁",
-            "󰂂",
-            "󰁹"
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
 	"pulseaudio#input": {
@@ -150,13 +152,13 @@
 	"custom/restart": {
     	"format": "",          
     	"on-click": "/sbin/reboot",
-    	"tooltip": true,
+    	"tooltip": false,
     	"interval": 0                
 	},
 	"custom/poweroff": {
     	"format": "",          
     	"on-click": "/sbin/poweroff",
-    	"tooltip": true,
+    	"tooltip": false,
     	"interval": 0                
 	},
 	"custom/keyboard_layout": {
@@ -166,7 +168,6 @@
     	"tooltip": false
 	},
 	"network": {
-		//"interface": "your-interface",
 		"format": "{ifname}",
 		"format-wifi": " {essid} {signalStrength}% ",
 		"format-disconnected": "",
@@ -194,5 +195,5 @@
 		"on-click": "if bluetoothctl show | grep -q 'Powered: yes'; then bluetoothctl power off; else bluetoothctl power on; fi",
 		"max-length": 10,
 		"interval": 5
-	},
+	}
   }
