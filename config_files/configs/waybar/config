@@ -1,5 +1,5 @@
 {
-	"layer": "bottom",
+	"layer": "top",
 	"position": "bottom",
 	"height": 40,
 	"spacing": 2,
@@ -71,10 +71,10 @@
         "mode-mon-col"  : 4,
         "format": {
           "days": "<span weight='normal'>{}</span>",
-          "months": "<span color='#cdd6f4'><b>{}</b></span>",
+          "months": "<big><span color='#cdd6f4'><b>{}</b></span></big>",
           "today": "<span color='#f38ba8' weight='3000'><u>{}</u></span>",
           "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-          "weeks": "<span color='#7fab7b'><b>w{:%W}</b></span>"
+          "weeks": "<small><span color='#7fab7b'><b>w{:%W}</b></span></small>"
         },
         "mode": "month",
         "on-scroll": 1
@@ -144,10 +144,6 @@
 		"smooth-scrolling-threshold": 1,
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"on-click-right": "pavucontrol"
-	},
-	"custom/sep": {
-	  "format": "|",
-	  "tooltip": false
 	},
 	"custom/restart": {
     	"format": "",          

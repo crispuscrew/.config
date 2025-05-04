@@ -1,0 +1,56 @@
+@define-color	text        #ffffff;
+@define-color	background  #1e1e2e;
+
+* {
+    font-family: 'JetBrains Mono', monospace, "FontAwesome 6 Free";
+	font-size: 14px;
+	font-weight: 600;
+    background: transparent;
+}
+
+window {
+    background-color: @background;
+    padding: 10px;
+    border-radius: 20px;
+    margin: auto;
+    border: 1px solid #89b4fa;
+}
+
+#text {
+    color: @text;
+    margin: 2px;
+}
+
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+}
+
+#outer-box {
+    padding: 20px;
+}
+
+#input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: none;
+    color: @text;
+}
+
+#input:select {
+    border: 1px solid #89b4fa;
+}
+
+#entry {
+    padding: 10px;
+}
+
+#entry:selected {
+    background-color: #2e3440;
+}
+
+#img {
+    margin-right: 15px;
+}
