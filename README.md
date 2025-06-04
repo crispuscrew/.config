@@ -56,7 +56,7 @@ You're always can change it in ~/.config/hypr/input.conf
 
 | Hotkey         | Action                     |
 |----------------|----------------------------|
-| Super + C      | close focus window         |
+| Super + M       | close focus window         |
 | Super + Q      | open terminal              |
 | Super + R      | open apps select menu      |
 | Super + V      | win+V equivalent           |
@@ -80,21 +80,7 @@ You're always can change it in ~/.config/hypr/input.conf
 | Super + D             | win + D equivalent                       |
 
 ### Media, mic & screen
-You also can use media (XF86) button
-(multi-modificator hotheys are some unstable)
-
-| Hotkey                | Action                             |
-|-----------------------|------------------------------------|
-| Super + Shift + B     | Increase screen brightness by 10%  |
-| Super + Ctrl + B      | Decrease screen brightness by 10%  |
-| Super + M             | Mute sound                         |
-| Super + Shift + M     | Mute microphone                    |
-| Super + Shift + Space | Play/Pause                         |
-| Super + Shift + →     | Next track                         |
-| Super + Shift + ←     | Previous track                     |
-| Super + Shift + ↓     | Decrease volume by 5%              |
-| Super + Shift + ↑     | Increase volume by 5%              |
-
+You can use media (XF86) button
 
 ### Additional hotkeys
 
