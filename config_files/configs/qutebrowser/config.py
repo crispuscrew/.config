@@ -10,9 +10,9 @@ def safe_unbind(keys):
             pass
 
 safe_unbind([
-    'F', 'O',
-    'h', 'j', 'k', 'l', 'd', 'r',
-    '<Ctrl-h>', '<Ctrl-N>',
+    'F', 'O', 'J', 'K', 'R', 'L', 'G', 'V', 'N',
+    'h', 'j', 'k', 'l', 'd', 'r', 'v', 'n', 'm', 'q', 
+    '<Ctrl-h>', '<Ctrl-N>', '<Ctrl-n>',
     '<Ctrl-F>', '<Ctrl-B>', '<Ctrl-D>', '<Ctrl-U>',
 ])
 
